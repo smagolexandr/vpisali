@@ -51,6 +51,23 @@ class PlaceController extends Controller
         );
     }
 
+    /**
+     * @Route("/places/user/{id}", name="user_places")
+     * @Method("GET")
+     * @param int $id
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     */
+    public function selectByUserAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $places = $em->getRepository(Place::class)->findby(['user' => $id]);
+
+        return $this->json([
+                'places' => $places
+            ]
+        );
+    }
+
 
     /**
      * @Route("/place", name="new_place")

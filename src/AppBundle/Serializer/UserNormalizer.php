@@ -60,6 +60,7 @@ class UserNormalizer extends ObjectNormalizer
             'id' => $user->getId(),
             'firstname' => $user->getFirstname(),
             'lastname' => $user->getLastname(),
+            'phone' => $user->getPhone(),
             'image' => $user->getImage(),
         ]), $format, $context);
     }

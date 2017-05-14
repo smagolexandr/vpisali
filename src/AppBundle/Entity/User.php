@@ -45,6 +45,13 @@ class User implements UserInterface
      */
     private $plainPassword;
 
+
+    /**
+     * @var string
+     * @ORM\Column(name="phone", type="string", length=15)
+     *
+     */
+    private $phone;
     /**
      * @var string
      *
@@ -58,7 +65,6 @@ class User implements UserInterface
      * @ORM\Column(name="lastname", type="string", length=190, nullable=true)
      */
     private $lastname;
-
     /**
      * @var string
      *
@@ -81,6 +87,7 @@ class User implements UserInterface
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Place", mappedBy="user")
      */
+
     private $places;
 
     /**
@@ -385,5 +392,29 @@ class User implements UserInterface
     public function eraseCredentials()
     {
         $this->setPlainPassword(null);
+    }
+
+    /**
+     * Set phone
+     *
+     * @param string $phone
+     *
+     * @return User
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Get phone
+     *
+     * @return string
+     */
+    public function getPhone()
+    {
+        return $this->phone;
     }
 }

@@ -17,6 +17,7 @@ class PlaceRepository extends \Doctrine\ORM\EntityRepository
                 ->addSelect('c')
                 ->where('c.name = :city')
                 ->setParameter('city', $city)
+                ->andWhere('p.status = false')
                 ->getQuery()
                 ->getResult();
     }

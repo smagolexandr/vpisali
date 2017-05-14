@@ -59,8 +59,9 @@ class PlaceNormalizer extends ObjectNormalizer
             'latitude' => $place->getLatitude(),
             'address' => $place->getAddress(),
             'status' => $place->getStatus(),
-            'user' => $place->getUser() instanceOf User ? $place->getUser()->getId()  : null,
+            'user' => $place->getUser() instanceOf User ? $place->getUser()  : null,
             'city' => $place->getCity() instanceof City ? $place->getCity()->getName() : null,
+            'images' => $place->getImages(),
             'reviews' => $place->getReviews()
         ]), $format, $context);
     }
@@ -92,6 +93,9 @@ class PlaceNormalizer extends ObjectNormalizer
         }
         if (isset($data['address'])) {
             $place->setAddress($data['address']);
+        }
+        if (isset($data['images'])){
+            $place->setImages($data['images']);
         }
         if (isset($data['user']))
         {

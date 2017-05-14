@@ -66,7 +66,7 @@ class Place
 
     /**
      * @var ArrayCollection
-     * @ORM\Column(type="string", unique=false, nullable=true)
+     * @ORM\Column(type="json_array", unique=false, nullable=true)
      */
     private $images;
 
